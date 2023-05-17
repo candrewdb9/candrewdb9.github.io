@@ -49,4 +49,4 @@ interp.plot_confusion_matrix()
 
 this code produced the folloowing confusion matrix:
 
-![alt test](https://github.com/candrewdb9/candrewdb9.github.io/blob/master/images/10AnimalConfusionMatrix.png,"10 Animals Confusion Matrix")
+![alt test](https://github.com/candrewdb9/candrewdb9.github.io/blob/master/images/10AnimalConfusionMatrix.png "10 Animals Confusion Matrix")
