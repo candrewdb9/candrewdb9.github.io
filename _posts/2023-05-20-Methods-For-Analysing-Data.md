@@ -48,6 +48,11 @@ PCA is a form of dimensionality reducuction for large data sets. "Its idea is si
 
 ![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/PCA_diagram3.png "Step 3")
 
+After this we define $x_i$ as the i-th coloumn for matrix *X*, and S the covariance matrix of the dataset where:
+
+$$
+S = \dfrac{1}{n - 1}\sum_{i=1}^n (x_i-\bar{X})(x_j-\bar{X})
+$$
 
 ## Method 3: T-SNE
 
