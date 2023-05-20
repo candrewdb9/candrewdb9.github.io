@@ -36,6 +36,7 @@ sns.scatterplot(
 ```
 
 The above code rendered the following results.
+
 ![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/MDS.png "MDS")
 
 ## Method 2: PCA
