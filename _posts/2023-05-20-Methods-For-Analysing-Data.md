@@ -39,6 +39,12 @@ The above code rendered the following results.
 
 ![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/MDS.png "MDS")
 
+It can be seen that MDS does a good job of seperating the classes in the data, displaying information like:
+
+* the digit *3* is close in euclidean space to *9* and *2*
+* the digit *1* is close in euclidean space to *7* and *4*
+* the digit *5* and *8* seem to have higher variance in euclidean space 
+
 ## Method 2: PCA
 PCA is a form of dimensionality reducuction for large data sets. "Its idea is simple—reduce the dimensionality of a dataset, while preserving as much ‘variability’ (i.e. statistical information) as possible"[[1]](#1). PCA works on analysing *n* entities, with each entity having P *numerical* observations or features. To start we need to define *p* *n*-dimensional vectors, forming a matrix *X* which defines our data. Each coloumn of *X* is the *n*-dimensional vector. Practically for image analysis this means flattening each *m*x*n* image matrix to a 1x$(m*n)$ vector, then each image vector is a row of the *X* matrix and each cloumn is a feature, or pixel, of each image in the dataset(see image below for a clearer explanation).
 
@@ -54,7 +60,42 @@ $$
 S = \dfrac{1}{n - 1}\sum_{i=1}^n (x_i-\bar{X})(x_j-\bar{X})
 $$
 
+We use the covariance matrix as we seek the coloumns of *X* with the highest variance, this leads to the equation where a is a *p*-dimensional vector of constants:
+
+$$
+Sa - \lambda a =0
+$$
+or
+$$
+Sa=\lambda a
+$$
+from this equation we see that a is the eigenvector and $\lambda$ is the eigenvalues of the matrix *S*. The vector is the PC loadings of the dataset and the equation $Xa_k% gives us the PCA of the Data set.
+
+Below is an example in python.
+```python
+pca = PCA(n_components=3)
+pca_result = pca.fit_transform(X,y)
+df['PCAx'] = pca_result[:,0]
+df['PCAy'] = pca_result[:,1]
+sns.scatterplot(
+    x='PCAx', y='PCAy',
+    hue=y,
+    palette=sns.color_palette('hls',10),
+    data=df,
+    legend="full",
+    alpha=1,
+    
+)
+```
+![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/PCA.png "PCA")
+
+PCA gives similar results to MDS which is expected as the variance is highest in euclidean space which is what MDS measures, but it seems to group some classes tighter than others which may suggest other variable affecting the classes.
+
+
 ## Method 3: T-SNE
+T-SNE stands for T-distributed stochastic neighbor embedding. unlike PCA and MDS T-SNE is a non-linear dimensional reduction of the dataset where sililar objects are located close together. T-SNE works to find a 2-dimensional map $Y = [y_1,y_2,...y_n]$ where $y_i \in \mathbb{R}^2$ to do so we need to define $p_{i|j} = \dfrac{exp(-\abs{x_i - x_j}^2 / 2\sigma_{i}^2)}{\sum_{k\neqi}exp(-\abs{x_i - x_j}^2 / 2\sigma_{i}^2)}$
+
+
 
 # Loading Dataset and libraries
 
