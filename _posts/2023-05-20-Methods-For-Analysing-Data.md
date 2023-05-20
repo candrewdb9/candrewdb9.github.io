@@ -93,9 +93,47 @@ PCA gives similar results to MDS which is expected as the variance is highest in
 
 
 ## Method 3: T-SNE
-T-SNE stands for T-distributed stochastic neighbor embedding. unlike PCA and MDS T-SNE is a non-linear dimensional reduction of the dataset where sililar objects are located close together. T-SNE works to find a 2-dimensional map $Y = [y_1,y_2,...y_n]$ where $y_i \in \mathbb{R}^2$ to do so we need to define $p_{i|j} = \dfrac{exp(-\\|x_i - x_j\\|^2 / 2\sigma_{i}^2)}{\sum_{k\neq i}exp(-\\|x_i - x_j\\|^2 / 2\sigma_{i}^2)}$
+T-SNE stands for T-distributed stochastic neighbor embedding. unlike PCA and MDS T-SNE is a non-linear dimensional reduction of the dataset where sililar objects are located close together. T-SNE works to find a 2-dimensional map $Y = [y_1,y_2,...y_n]$ where $y_i \in \mathbb{R}^2$ to do so we need to define $p_{ij}$ and $q_{ij} 
+$$
+p_{j|i} = \dfrac{exp(-\\|x_i - x_j\\|^2 / 2\sigma_{i}^2)}{\sum_{k\neq i}exp(-\\|x_i - x_j\\|^2 / 2\sigma_{i}^2)}
+$$
+$$
+p_{ij} = \dfrac{p_{j|i}+p_{i|j}}{2N}
+$$
+
+$p_{ij}$ are the probabilities which are proportional to the similarity between two objects $x_i$ and $x_j$.
+
+$$
+q_{ij} = \dfrac{(1+ \\|y_i - y_j\\|^2)^-1}{\sum_{k} \sum_{l\neq k} (1+ \\|y_i - y_j\\|^2)^-1}
+$$
+
+$q_{ij}$ measures the similarities betweens points on the map $Y$. T-SNE uses gradient deescent to minimize the following equation by varying the values of the map $Y$.
+$$
+KL(P\\|Q) = \sum_{i\neq j} p_{ij}\log{\dfrac{p_{ij}}{q_{ij}}}
+$$
+It is suggested that T-SNE be run on the PCA data to reduce the dimensionality of the search space which will speed up the results.
+```python
+tsne = TSNE(n_components=2, perplexity=100, n_iter=5000)
+tsne_pca_results = tsne.fit_transform(pca_result)
+df['TSNEx'] = tsne_pca_results[:,0]
+df['TSNEy'] = tsne_pca_results[:,1]
+sns.scatterplot(
+    x='TSNEx', y='TSNEy',
+    hue=y,
+    palette=sns.color_palette('hls',10),
+    data=df,
+    legend="full",
+    alpha=1,
+    
+)
+```
+![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/TSNE.png "TSNE")
+
+T-SNE gives far more information on the data set. it can be seen that although 0 and 6 are the close together they are easy to distiguish, 4 and 7 are close together and are also easy to distingush. But 5 and 8 are close together and hard to distigush. there are also some elements in the data set which don't sit with the rest of their cohort, this could mean they need to removed from the set, or more augmentation needs to be applied to succesfully identify them. 
 
 
+## Summary
+These metric can be thought to be proportional to the success of AIs interpreting the data. If the classes are hard to distiguish in these forms you may need more features to describe them. T-SNE seems to be the best metric and since PCA is a part of it it may give more data to veiw, maybe implying the level of *deepness* of the model. If PCA is able to find a linear relation a simpler model should be sufficient.  
 
 # Loading Dataset and libraries
 
