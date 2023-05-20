@@ -93,7 +93,7 @@ PCA gives similar results to MDS which is expected as the variance is highest in
 
 
 ## Method 3: T-SNE
-T-SNE stands for T-distributed stochastic neighbor embedding. unlike PCA and MDS T-SNE is a non-linear dimensional reduction of the dataset where sililar objects are located close together. T-SNE works to find a 2-dimensional map $Y = [y_1,y_2,...y_n]$ where $y_i \in \mathbb{R}^2$ to do so we need to define $p_{i|j} = \dfrac{exp(-\abs{x_i - x_j}^2 / 2\sigma_{i}^2)}{\sum_{k\neqi}exp(-\abs{x_i - x_j}^2 / 2\sigma_{i}^2)}$
+T-SNE stands for T-distributed stochastic neighbor embedding. unlike PCA and MDS T-SNE is a non-linear dimensional reduction of the dataset where sililar objects are located close together. T-SNE works to find a 2-dimensional map $Y = [y_1,y_2,...y_n]$ where $y_i \in \mathbb{R}^2$ to do so we need to define $p_{i|j} = \dfrac{exp(-\abs{x_i - x_j}^2 / 2\sigma_{i}^2)}{\sum_{k\neqi}exp(-\\|x_i - x_j^2 / 2\sigma_{i}^2)}$
 
 
 
