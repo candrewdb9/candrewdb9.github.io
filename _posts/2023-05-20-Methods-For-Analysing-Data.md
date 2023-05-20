@@ -5,7 +5,7 @@ Exploratory data analysis is an approach to analysing the data to summarise ther
 MDS is also known as Principal Coorinate Analysis(PCoA), but since I'll be discussing PCA later I will Stick to MDS.MDS provides a visual representation of dissimilarities between classes in the dataset. The MDS Algorithm works to minimize the loss function, called *strain*, for an input matrix.
 
 $$
-Strain(x_1,x_2,...x_n) = ((\sum_{i,j} (b_ij -x^T_i x_j)^2)/\sum_{i,j} b_ij ^2 ) 
+Strain(x_1,x_2,...x_n) = ((\sum_{i,j} (b_ij -x^T_i x_j)^2)/(\sum_{i,j} b_ij ^2) ) 
 $$
 
 ## Method 2: PCA
