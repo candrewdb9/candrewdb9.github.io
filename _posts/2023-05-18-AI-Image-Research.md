@@ -10,6 +10,6 @@ Applying an FFt to an image reveals repeating patterns. This is commanly use in 
 ## Method 2: Error Level Analysis
 Error Level Analysis indentifies different levels of compression across the image. In a real image disrete areas of the image will have similar ELA values i.e. edges or solid colors. 
 
-![alt test](https://github.com/candrewdb9/candrewdb9.github.io/blob/master/images/ELA_EXAPMLE.jpg "ELA Example")
+![alt test](https://github.com/candrewdb9/candrewdb9.github.io/blob/master/images/ELA_EXAMPLE.jpg "ELA Example")
 
 The above image is faked, you can see in the ELA image(right) the faked area has a diferent value for edge areas than the res of the image.

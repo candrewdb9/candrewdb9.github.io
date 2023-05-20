@@ -45,3 +45,26 @@ The above code rendered the following results.
 ## Method 3: T-SNE
 
 # Loading Dataset and libraries
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import sklearn
+from sklearn.datasets import load_digits
+
+
+#MDS
+from sklearn.datasets import load_digits
+from sklearn.manifold import MDS
+
+# PCA
+from sklearn.decomposition import PCA
+
+#TSNE
+from sklearn.manifold import TSNE
+
+X,y = sklearn.datasets.load_digits(return_X_y=True)
+
+```
