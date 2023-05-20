@@ -40,7 +40,14 @@ The above code rendered the following results.
 ![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/MDS.png "MDS")
 
 ## Method 2: PCA
-PCA is a form of dimensionality reducuction for large data sets. "Its idea is simple—reduce the dimensionality of a dataset, while preserving as much ‘variability’ (i.e. statistical information) as possible"[[1]](#1)
+PCA is a form of dimensionality reducuction for large data sets. "Its idea is simple—reduce the dimensionality of a dataset, while preserving as much ‘variability’ (i.e. statistical information) as possible"[[1]](#1). PCA works on analysing *n* entities, with each entity having P *numerical* observations or features. To start we need to define *p* *n*-dimensional vectors, forming a matrix *X* which defines our data. Each coloumn of *X* is the *n*-dimensional vector. Practically for image analysis this means flattening each *m*x*n* image matrix to a 1x$(m*n)$ vector, then each image vector is a row of the *X* matrix and each cloumn is a feature, or pixel, of each image in the dataset(see image below for a clearer explanation).
+
+![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/PCA_diagram1.png "Step 1")
+
+![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/PCA_diagram2.png "Step 2")
+
+![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/PCA_diagram3.png "Step 3")
+
 
 ## Method 3: T-SNE
 
