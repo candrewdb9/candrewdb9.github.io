@@ -40,7 +40,7 @@ The above code rendered the following results.
 ![alt text](https://github.com/candrewdb9/candrewdb9.github.io/raw/master/images/MDS.png "MDS")
 
 ## Method 2: PCA
-
+PCA is a form of dimensionality reducuction for large data sets. "Its idea is simple—reduce the dimensionality of a dataset, while preserving as much ‘variability’ (i.e. statistical information) as possible"[[1]](#1)
 
 ## Method 3: T-SNE
 
@@ -68,3 +68,8 @@ from sklearn.manifold import TSNE
 X,y = sklearn.datasets.load_digits(return_X_y=True)
 
 ```
+
+
+## References
+<a id="1">[1]</a>
+Jolliffe IT, Cadima J. Principal component analysis: a review and recent developments. Philos Trans A Math Phys Eng Sci. 2016 Apr 13;374(2065):20150202. doi: 10.1098/rsta.2015.0202. PMID: 26953178; PMCID: PMC4792409.
